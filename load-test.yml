@@ -1,0 +1,22 @@
+
+
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: '/offers'
+      - post:
+          url: '/user/signup'
+          json:
+            email: 'testload@example.com'
+            password: 'password123'
+            username: 'loaduser'
+
+
+##Tests de Performance (Utilise Artillery pour les tests de charge)
+
+##  artillery run load-test.yml

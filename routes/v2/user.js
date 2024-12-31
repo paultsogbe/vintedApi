@@ -22,12 +22,7 @@ const owners = require("../../data/owners.json");
 
 // Import du model User et Offer
 // afin d'éviter des erreurs (notamment dues à d'eventuelles références entre les collections)
-// nous vous conseillons d'importer touts vos models dans toutes vos routes
-//
-// nous avons besoin de User pour effectuer une recherche dans la BDD
-// afin de savoir :
-// - si un utilisateur ayant le même email existe déjà ou pas (route signup)
-// - quel est l'utilisateur qui souhaite se connecter (route login)
+
 const User = require("../../models/User");
 const Offer = require("../../models/Offer");
 
@@ -125,7 +120,7 @@ router.post("/user/login", async (req, res) => {
   }
 });
 
-// CETTE ROUTE SERT AU RESET DE LA BDD ENTRE 2 SESSIONS DE FORMATION. CELA NE FAIT PAS PARTIE DE L'EXERCICE.
+// CETTE ROUTE SERT AU RESET DE LA BDD ENTRE 2 SESSIONS DE FORMATION.
 router.get("/reset-users", async (req, res) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization.replace("Bearer ", "");
